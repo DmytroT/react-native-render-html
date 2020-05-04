@@ -391,7 +391,7 @@ export default class HTML extends PureComponent {
      * @memberof HTML
      */
     renderRNElements (RNElements, parentWrapper = 'root', parentIndex = 0) {
-        const { tagsStyles, classesStyles, emSize, ignoredStyles } = this.props;
+        const { tagsStyles, classesStyles, emSize, ignoredStyles, allowFontScaling } = this.props;
         return RNElements && RNElements.length ? RNElements.map((element, index) => {
             const { attribs, data, tagName, parentTag, children, nodeIndex, wrapper } = element;
             const Wrapper = wrapper === 'Text' ? Text : View;
@@ -438,7 +438,7 @@ export default class HTML extends PureComponent {
 
             const classStyles = _getElementClassStyles(attribs, classesStyles);
             const textElement = data ?
-                <Text allowFontScaling={this.props.allowFontScaling} style={this.filterBaseFontStyles(element, classStyles)}>{ data }</Text> :
+                <Text allowFontScaling={allowFontScaling} style={this.filterBaseFontStyles(element, classStyles)}>{ data }</Text> :
                 false;
 
             const style = [
