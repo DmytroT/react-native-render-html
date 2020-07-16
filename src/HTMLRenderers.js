@@ -18,7 +18,7 @@ export function a (htmlAttribs, children, convertedCSSStyles, passProps) {
 
     if (parentWrapper === 'Text') {
         return (
-            <Text {...passProps} style={style} onPress={onPress} key={key}>
+            <Text {...passProps} textBreakStrategy={'simple'} style={style} onPress={onPress} key={key}>
                 { children || data }
             </Text>
         );
@@ -93,7 +93,7 @@ export function ul (htmlAttribs, children, convertedCSSStyles, passProps = {}) {
                 );
             } else if (rawChild.parentTag === 'ol') {
                 prefix = listsPrefixesRenderers && listsPrefixesRenderers.ol ? listsPrefixesRenderers.ol(...rendererArgs) : (
-                    <Text style={{ marginRight: 5, fontSize: baseFontSize }}>{ index + 1 })</Text>
+                    <Text textBreakStrategy={'simple'} style={{ marginRight: 5, fontSize: baseFontSize }}>{ index + 1 })</Text>
                 );
             }
         }
@@ -144,12 +144,12 @@ export function iframe (htmlAttribs, children, convertedCSSStyles, passProps) {
 
 export function br (htlmAttribs, children, convertedCSSStyles, passProps) {
     return (
-        <Text style={{ height: 1.2 * passProps.emSize, flex: 1 }} key={passProps.key}>{"\n"}</Text>
+        <Text textBreakStrategy={'simple'} style={{ height: 1.2 * passProps.emSize, flex: 1 }} key={passProps.key}>{"\n"}</Text>
     );
 }
 
 export function textwrapper (htmlAttribs, children, convertedCSSStyles, { key }) {
     return (
-        <Text key={key} style={convertedCSSStyles}>{ children }</Text>
+        <Text textBreakStrategy={'simple'} key={key} style={convertedCSSStyles}>{ children }</Text>
     );
 }
