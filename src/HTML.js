@@ -438,7 +438,7 @@ export default class HTML extends PureComponent {
 
             const classStyles = _getElementClassStyles(attribs, classesStyles);
             const textElement = data ?
-                <Text allowFontScaling={allowFontScaling} style={this.filterBaseFontStyles(element, classStyles)}>{ data }</Text> :
+                <Text textBreakStrategy={'simple'} allowFontScaling={allowFontScaling} style={this.filterBaseFontStyles(element, classStyles)}>{ data }</Text> :
                 false;
 
             const style = [
@@ -476,7 +476,7 @@ export default class HTML extends PureComponent {
                 remoteErrorView(this.props, this.state) :
                 (
                     <View style={{ flex: 1, alignItems: 'center' }}>
-                        <Text allowFontScaling={allowFontScaling} style={{ fontStyle: 'italic', fontSize: 16 }}>Could not load { this.props.uri }</Text>
+                        <Text textBreakStrategy={'simple'} allowFontScaling={allowFontScaling} style={{ fontStyle: 'italic', fontSize: 16 }}>Could not load { this.props.uri }</Text>
                     </View>
                 );
         }
