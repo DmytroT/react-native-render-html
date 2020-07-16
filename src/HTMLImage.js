@@ -100,7 +100,7 @@ export default class HTMLImage extends PureComponent {
     get errorImage () {
         return (
             <View style={{ width: 50, height: 50, borderWidth: 1, borderColor: 'lightgray', overflow: 'hidden', justifyContent: 'center' }}>
-                { this.props.alt ? <Text style={{ textAlign: 'center', fontStyle: 'italic' }}>{ this.props.alt }</Text> : false }
+                { this.props.alt ? <Text textBreakStrategy={'simple'} style={{ textAlign: 'center', fontStyle: 'italic' }}>{ this.props.alt }</Text> : false }
             </View>
         );
     }
